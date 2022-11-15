@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# print the best school x10
+for ((cnt=0; cnt < 10; cnt++))
+do
+    echo "Best School"
+done
