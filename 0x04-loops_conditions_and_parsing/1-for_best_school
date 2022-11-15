@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 time
-for ((cnt=0; cnt < 10; cnt++))
+for i in $(seq 1 10)
 do
     echo "Best School"
+    i="$((i))"
 done
