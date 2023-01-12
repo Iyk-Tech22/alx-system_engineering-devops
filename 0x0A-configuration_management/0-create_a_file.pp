@@ -1,3 +1,4 @@
+# Create file set, owner, group and their perssion
 file{'/tmp/school':
     path    => '/tmp/school',
     owner   => 'www-data',
