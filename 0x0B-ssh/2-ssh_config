@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Disable password base authetication
+PasswordAuthentication no
+IdentifyFile ~/.ssh/school
