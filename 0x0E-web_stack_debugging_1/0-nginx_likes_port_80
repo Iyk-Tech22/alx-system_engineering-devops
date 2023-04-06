@@ -6,6 +6,8 @@ install_nginx(){
 }
 if [[ -n $(which nginx) ]]; then
     sudo apt-get purge --auto-remove nginx
+    chmod 777 /var/www /etc/nginx
+    rm -r /var/www /etc/nginx
     install_nginx
 else
     install_nginx
