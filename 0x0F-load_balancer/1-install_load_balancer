@@ -1,4 +1,29 @@
 #!/usr/bin/env bash
 # INSTALL AND CONFIGURE HAPROXY
 configure() {
-    
+    cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.brk
+    haproxy_config="
+    	frontend web-tester
+	    bind *:80
+	    timeout client 2s
+	    mode http
+	    default_backend server-tester
+	backend server-tester
+	    timeout connect 5s
+	    timeout server 5s
+	    mode http
+	    server 75617-web-01 3.94.211.4:80
+	    server 75617-web-02 35.168.2.18:80
+    "
+    echo "$haproxy_config" > /etc/haproxy/haproxy.cfg
+}
+if  [[ -z  $(which haproxy) ]]; then
+    sudo apt-get update && upgrade
+    sudo apt-get install --no-install-recommends software-properties-common
+    sudo add-apt-repository ppa:vbernat/haproxy-2.7
+    sudo apt-get install haproxy=2.7.\*
+    configure
+else
+    configure
+fi
+sudo systemctl restart haproxy
