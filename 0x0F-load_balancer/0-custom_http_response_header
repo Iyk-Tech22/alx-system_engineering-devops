@@ -5,10 +5,10 @@ configure() {
     sudo ufw enable;
     sudo chown  "$USER":"$USER" /var/www/html;
     sudo chown "$USER":"$USER" /etc/nginx/sites-available/;
-    sudo echo "Welcome to iyktech site,still under developing..." | cat > /var/www/html/index.html
+    sudo echo "Hello World!" | cat > /var/www/html/index.html
     sudo sed -i "35a\ \tlocation /redirectme {\n\t\treturn 301 https://youtube.com;\n\t}" /etc/nginx/sites-available/default
     #CUSTUME 404 ERROR PAGE
-    sudo echo "ceci fon st" | cat > /var/www/html/_404.html
+    sudo echo "Ceci n'est pas une page" | cat > /var/www/html/_404.html
     sudo sed -i "38a\ \terror_page 404 /_404.html;\n\tlocation = /_404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}" /etc/nginx/sites-available/default
     sudo sed -i "25a\ \tadd_header X-Served-By $(hostname);" /etc/nginx/sites-available/default
 }
