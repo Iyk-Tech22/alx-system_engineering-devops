@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# INSTALL AND CONFIGURE HAPROXY
+configure() {
+    
