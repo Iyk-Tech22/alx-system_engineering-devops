@@ -4,9 +4,8 @@ install_nginx(){
     sudo apt-get update && upgrade
     sudo apt-get -y install nginx
 }
-if [[-n $(which nginx) ]]; then
-    sudo apt-get uninstall nginx
-    sudo apt-get autoremove nginx
+if [[ -n $(which nginx) ]]; then
+    sudo apt-get purge --auto-remove nginx
     install_nginx
 else
     install_nginx
