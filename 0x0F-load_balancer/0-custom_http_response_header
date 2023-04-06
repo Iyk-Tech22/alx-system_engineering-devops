@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Installing and configuring ngix
+# Installing and configuring nginx
 configure() {
     sudo ufw allow "Nginx FULL";
     sudo ufw enable;
