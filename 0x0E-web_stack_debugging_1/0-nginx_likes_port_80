@@ -1,20 +1,5 @@
 #!/usr/bin/env bash
-# WEB STACK DEBUGGING
-if [[ -p $(which nginx) ]]; then
-    sudo chown $USER:$USER /etc/nginx/sites-available/default
-    $server_cnf="
-    server {
-	listen 80;
-	server_name _;
-	root /var/www/html;
-	
-	location / {
-	   try_files $url $url/ =404;
-	}
-    }"
-    echo "$server_cnf" > /etc/nginx/sites-available/default
-else
-    sudo apt-get update && upgrade
-    sudo apt-get -y install nginx
-fi
+# WEB STACK DEBUGGIG
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo systemctl restart nginx
